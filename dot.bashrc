@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-source ~/.bashlocal
+source ~/.bash.d/.bashlocal
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -104,3 +104,4 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 source ~/.bash_completion.d/pybombs
+PS1="\[${Cyan}\]\u@\h\[${Color_Off}\]:\w\[${IBlue}\]\$(__git_ps1) \[${Color_Off}\]$ "
