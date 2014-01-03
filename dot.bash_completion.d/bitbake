@@ -1,0 +1,87 @@
+
+_bitbake()
+{
+
+    local cur prev special i
+    local local_config_file=conf/local.conf
+    local layer_config_file=conf/bblayers.conf
+
+    COMMON_OPTIONS='\
+        -h --help\
+        --version\
+        --verbose\
+        --clear-stamp\
+        --debug\
+        --parse-only\
+        --log-domains\
+        --profile\
+        --servertpye\
+        --revisions-changed\
+        --server-only\
+        --bind\
+        --no-setscene\
+        --remote-server\
+        --kill-server\
+        --observe-only\
+        --status-only\
+        '
+
+    RECIPE_COMMANDS='\
+        --continue\
+        --buildfile\
+        --dry-run\
+        --environment\
+        --dump-signatures\
+        --environment\
+        --show-versions\
+        --graphviz\
+        --ignore-deps\
+        --no-setscene\
+        '
+        
+    CONF_COMMANDS='\
+        --read\
+        --postread\
+        '
+    
+    UI_COMMANDS='\
+        --ui\
+        '
+
+    COMPREPLY=()
+    cur=${COMP_WORDS[COMP_CWORD]}
+    prev=${COMP_WORDS[COMP_CWORD-1]}
+
+
+    if [[ $cur == -* ]]; then
+        completions="$COMMON_OPTIONS $RECIPE_COMMANDS $UI_COMMANDS $CONF_COMMANDS"
+    elif [ $prev == "bitbake" ]; then
+        completions=`gawk '{
+            if( start_layers == 1 )
+            {
+                if( $1 ~ "\"" )
+                {
+                    start_layers=0
+                }
+                else
+                {
+                    print $1
+                }
+            }
+        
+            if( $0 ~ /BBLAYERS/ )
+            {
+                start_layers=1
+            }
+        }
+        ' conf/bblayers.conf | 
+            xargs -I unicorns find unicorns -name '*.bb' |
+            gawk -F/ '{sub(/_.*|\.bb/, "", $NF); print $NF}' `
+        
+    fi
+    COMPREPLY=( $( compgen -W "$completions" -- $cur ))
+
+
+    return 0
+}
+complete -F _bitbake bitbake

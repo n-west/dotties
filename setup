@@ -13,3 +13,4 @@ install dot.vimrc $mehomedir/.vimrc
 
 
 eval `source $mehomedir/.bashrc`
+eval `source $mehomedir/.bash_completion.d/bitbake`
