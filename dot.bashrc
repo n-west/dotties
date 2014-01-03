@@ -101,7 +101,7 @@ fi
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
+    . ~/.bash_completion.d/*
 fi
 
-source ~/.bash_completion.d/pybombs
 PS1="\[${Cyan}\]\u@\h\[${Color_Off}\]:\w\[${IBlue}\]\$(__git_ps1) \[${Color_Off}\]$ "
