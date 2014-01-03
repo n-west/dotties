@@ -2,6 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+source ~/.bashlocal
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -50,7 +51,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1="\[${Cyan}\]\u@\h\[${Color_Off}\]:\w\[${IBlue}\]\$(__git_ps1) \[${Color_Off}\]$ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -102,5 +103,4 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-source ~/.bashlocal
-source ~/.bash_completion/pybombs
+source ~/.bash_completion.d/pybombs

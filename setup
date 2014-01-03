@@ -7,7 +7,7 @@ install dot.bashlocal -T $mehomedir/.bash.d/.bashlocal
 install dot.dir_colors -T $mehomedir/.bash.d/.dir_colors
 
 install -d $mehomedir/.bash_completion.d/
-install dot.bash_completion.d/* -t $mehomedir/.bash_completion
+install dot.bash_completion.d/* -t $mehomedir/.bash_completion.d
 
 install dot.vimrc $mehomedir/.vimrc
 
