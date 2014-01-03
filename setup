@@ -1,0 +1,12 @@
+
+me=`whoami`
+mehomedir=/home/$me
+install -d $mehomedir/.bash.d/
+install dot.bashrc -T $mehomedir/.bashrc
+install dot.bashlocal -T $mehomedir/.bash.d/.bashlocal
+install dot.dir_colors -T $mehomedir/.bash.d/.dir_colors
+
+install dot.vimrc $mehomedir/.vimrc
+
+
+eval `source $mehomedir/.bashrc`
