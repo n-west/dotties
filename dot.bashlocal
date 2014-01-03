@@ -72,4 +72,4 @@ On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
 
 PS1="\[${Cyan}\]\u@\h\[${Color_Off}\]:\w\[${IBlue}\]\$(__git_ps1) \[${Color_Off}\]$ "
-eval `dircolors ~/.dir_colors`
+eval `dircolors ~/.bash.d/.dir_colors`
