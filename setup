@@ -12,3 +12,8 @@ install dot.bash_completion.d/* -t $mehomedir/.bash_completion.d
 install dot.vimrc $mehomedir/.vimrc
 
 eval `source $mehomedir/.bashrc`
+
+# install solarized config for terminator
+# should the submodule init go here or somewhere else? possible time to start a makefile
+install -d $mehomedir/.config/terminator/
+install terminator-solarized/config -T $mehomedir/.config/terminator/config

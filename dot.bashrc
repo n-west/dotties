@@ -2,7 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-source ~/.bash.d/.bashlocal
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -104,4 +103,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . ~/.bash_completion.d/*
 fi
 
+source ~/.bash.d/.bashlocal
 PS1="\[${Cyan}\]\u@\h\[${Color_Off}\]:\w\[${IBlue}\]\$(__git_ps1) \[${Color_Off}\]$ "
