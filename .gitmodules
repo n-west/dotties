@@ -1,0 +1,3 @@
+[submodule "terminator-solarized"]
+	path = terminator-solarized
+	url = https://github.com/ghuntley/terminator-solarized.git
