@@ -1,0 +1,23 @@
+Config { font = "-*-Fixed-Bold-R-Normal-*-18-*-*-*-*-*-*-*"
+       , bgColor = "darkgreen"
+       , fgColor = "grey"
+       , position = TopSize L 90 22
+       , commands = [ Run Weather "EGPF" ["-t"," <tempF>F","-L","64","-H","77","--normal","green","--high","red","--low","lightblue"] 36000
+                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Date "%a %b %_d %l:%M" "date" 20
+                    , Run StdinReader
+                    , Run DynNetwork ["-t", "<dev>: <rx>|<tx>","-S","true"] 15
+                    , Run Wireless "wlan0" ["-t", "<essid> <qualitybar>"] 30
+                    , Run BatteryP ["BAT0"]
+                        ["-t", "<acstatus><watts> (<left>%)"
+                        ,  "-L", "10", "-H", "80", "-p", "3"
+                        ,  "--", "-O", "<fc=green>On</fc> - ", "-i", ""
+                        ,  "-L", "-15", "-H", "-5"
+                        ,  "-l", "red", "-m", "blue", "-h", "green"] 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{<fc=#ee9a00>%date%</fc> | %EGPF%            pepper | %wlan0wi%|%dynnetwork%   |   %battery%    |   %memory% * %swap% "
+       }
