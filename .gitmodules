@@ -16,3 +16,6 @@
 [submodule "bundle/julia-vim"]
 	path = bundle/julia-vim
 	url = https://github.com/JuliaLang/julia-vim.git
+[submodule "config/base16-shell"]
+	path = config/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
