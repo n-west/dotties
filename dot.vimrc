@@ -70,3 +70,5 @@ augroup END
 
 " for gnuradio:
 autocmd BufWritePre * :%s/\s\+$//e
+
+map <F3> :ClangFormat<CR>
