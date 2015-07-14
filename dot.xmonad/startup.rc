@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# set up trayer
-trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --alpha 100 --tint 0x226622 --height 23 &
-
-# run applets
-nm-applet &
-gnome-sound-applet &
-xfce4-power-manager &
