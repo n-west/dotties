@@ -1,14 +1,24 @@
 
-URxvt.perl-lib: /opt/code/urxvt-perls
-URxvt.perl-ext-common: keyboard-select,clipboard,url-select
+URxvt.perl-lib: /home/MSS/nathan-west/code/urxvt-perls
+URxvt.perl-ext-common: keyboard-select,clipboard,matcher,url-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt*iso14755: False
 
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.Control-Shift-C: perl:clipboard:copy
+URxvt.keysym.Control-Shift-V: perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.clipboard.copycmd:  xsel --input  --clipboard
+URxvt.clipboard.pastecmd: xsel --output --clipboard
 
 URxvt.keysym.M-u: perl:url-select:select_next
+Urxvt.url-select.launcher: /usr/bin/xdg-open
+Urxvt.url-select.underline: true
+
+
+URxvt.scrollTtyOutput: False
+URxvt.scrollTtyKeypress: True
+URxvt.scrollWithBuffer: True
 
 !-- Xft settings -- !
 Xft.dpi:        96
@@ -17,8 +27,9 @@ Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
-URxvt.font:     xft:bitstream vera sans mono:size=16:antialias=true
-URxvt.boldFont: xft:bitstream vera sans mono:bold:size=16:antialias=true
+URxvt.font:     xft:bitstream vera sans mono:size=11:antialias=true
+URxvt.boldFont: xft:bitstream vera sans mono:bold:size=11:antialias=true
+URxvt.saveLines: 65535
 
 
 ! Base16 Default
